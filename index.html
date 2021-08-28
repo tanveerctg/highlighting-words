@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>JavaScript String Methods</h2>
+
+    <p class="content">
+      Search a string for "W3Schools", and display the position of the match:
+    </p>
+
+    <p id="demo"></p>
+
+    <input class="input" />
+    <script>
+      let text = document.querySelector(".content").textContent;
+      let input = document.querySelector(".input");
+      let n = text.search("W3Schools");
+      document.getElementById("demo").innerHTML = n;
+
+      input.addEventListener("keyup", (e) => {
+        if (text.search(e.target.value) > -1) {
+          document.querySelector(".content").innerHTML = text.replace(
+            new RegExp(e.target.value, "gi"),
+            (match) =>
+              `<mark style='background:red;color:#fff;'>${match}</mark>`
+          );
+        } else {
+          document.querySelector(".content").innerHTML =
+            document.querySelector(".content").textContent;
+        }
+      });
+    </script>
+  </body>
+</html>
